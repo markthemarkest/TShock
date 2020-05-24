@@ -1,4 +1,4 @@
-FROM mono:6.8.0.96 AS build
+FROM arm32v7/mono:6.8.0.96 AS build
 
 ARG BUILD_MODE=Release
 
@@ -25,7 +25,7 @@ RUN chmod +x /nuget.exe && \
     cp /src/TShockAPI/bin/$BUILD_MODE/TShockAPI.* /out/ && \
     mv /out/TShockAPI.dll /out/ServerPlugins/TShockAPI.dll
 
-FROM mono:6.8.0.96-slim
+FROM arm32v7/mono:6.8.0.96-slim
 
 # documenting ports
 EXPOSE 7777 7878
